@@ -4,24 +4,30 @@ import (
 	"fmt"
 )
 
-type doc struct {
+type child struct {
+	job string
+}
+
+type dataStruct struct {
 	id   int
 	name string
 	list []string
+	child
 }
 
 // maps
-func Maps() {
+func MapsStruct() {
 	a := make(map[string]int)
-	user := doc{
+	user := dataStruct{
 		id:   1,
 		name: "majid",
 		list: []string{
 			"js",
 			"go",
 		},
+		child: child{job: "react"},
 	}
-	for i := 1; i < 10; i++ {
+	for i := 1; i <= 10; i++ {
 		if i != 7 {
 			a[fmt.Sprintf("id%v", i)] = i
 		}
