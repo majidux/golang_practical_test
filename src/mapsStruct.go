@@ -27,10 +27,14 @@ func MapsStruct() {
 		},
 		child: child{job: "react"},
 	}
-	for i := 1; i <= 10; i++ {
+Loop:
+	i := 1
+	for ; i <= 10; i++ {
 		if i != 7 {
-			a[fmt.Sprintf("id%v", i)] = i
+			a[fmt.Sprintf("id%v\n", i)] = i
+
 		}
+		break Loop
 	}
 	delete(a, "id2")
 	fmt.Printf("A: %v\n", a)
