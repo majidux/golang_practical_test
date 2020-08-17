@@ -27,16 +27,23 @@ func MapsStruct() {
 		},
 		child: child{job: "react"},
 	}
-Loop:
 	i := 1
 	for ; i <= 10; i++ {
 		if i != 7 {
 			a[fmt.Sprintf("id%v\n", i)] = i
-
+		} else if err := recover(); err != nil {
+			panic("error")
 		}
-		break Loop
 	}
 	delete(a, "id2")
 	fmt.Printf("A: %v\n", a)
+	defer func() {
+		for _, v := range a {
+			if v == 3 {
+				break
+			}
+			fmt.Println("Each item: \n", v)
+		}
+	}()
 	fmt.Printf("User: %v\n", user)
 }
