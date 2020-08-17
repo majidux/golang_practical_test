@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 type child struct {
@@ -39,6 +40,8 @@ func MapsStruct() {
 	fmt.Printf("A: %v\n", a)
 	defer ranger(a)
 	fmt.Printf("User: %v\n", user)
+	v := Vertex{2, 3}
+	fmt.Println(v.Abs())
 }
 
 func ranger(a map[string]int) int {
@@ -49,4 +52,14 @@ func ranger(a map[string]int) int {
 		fmt.Println("Each item: \n", v)
 	}
 	return 0
+}
+
+// Struct
+type Vertex struct {
+	X, Y float64
+}
+
+// Method
+func (v Vertex) Abs() float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
