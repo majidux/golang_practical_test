@@ -37,13 +37,16 @@ func MapsStruct() {
 	}
 	delete(a, "id2")
 	fmt.Printf("A: %v\n", a)
-	defer func() {
-		for _, v := range a {
-			if v == 3 {
-				break
-			}
-			fmt.Println("Each item: \n", v)
-		}
-	}()
+	defer ranger(a)
 	fmt.Printf("User: %v\n", user)
+}
+
+func ranger(a map[string]int) int {
+	for _, v := range a {
+		if v == 5 {
+			break
+		}
+		fmt.Println("Each item: \n", v)
+	}
+	return 0
 }
