@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func main(){
+func Goroutine(){
 	go compute(3)
 	go compute(3)
 	fmt.Scanln()

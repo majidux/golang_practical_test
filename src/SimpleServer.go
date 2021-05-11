@@ -2,7 +2,7 @@ package main
 
 import "net/http"
 
-func main() {
+func SimpleServer() {
 	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
 		writer.Write([]byte("hello go"))
 	})

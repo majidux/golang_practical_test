@@ -2,10 +2,20 @@ package main
 
 import "fmt"
 
-func main() {
-	var a int = 42
-	var b *int = &a
-	fmt.Println(a, *b)
-	a = 21
-	fmt.Println(a, *b)
+type aStruct struct {
+	id    int8
+	name  string
+	langs []string
+}
+
+type zType string
+
+func Pointer() {
+	a := aStruct{id: 12, name: "majid", langs: []string{"go", "js"}}
+	var b *aStruct = &a
+	var z zType = "bar"
+	var y *zType = &z
+	fmt.Println(z, *y)
+	z = "foo"
+	fmt.Println(z, *y, *b)
 }
